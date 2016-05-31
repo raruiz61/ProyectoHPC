@@ -1,0 +1,54 @@
+
+Antibody Epitope Prediction tool
+================================
+
+Introduction:
+-------------
+The distributions 'IEDB_BCell-1.0.tar.gz' contain a collection methods for Antibody Epitope Prediction.
+The collection is a mixture of python scripts, specific binary for BepiPred and a pickled file containing residue scales for different methods.
+
+Prerequisites:
+--------------
++ Red Hat Enterprise Linux (RHEL) 64-bit environment
+  * http://www.redhat.com/
+    - This distribution has been tested on Red Hat Enterprise Linux (RHEL) 64 bit system.
+
++ Python 2.5 or higher
+  * http://www.python.org/
+    - Under ubuntu: sudo apt-get install python2.5
+    
++ Matplotlib
+  * http://matplotlib.org/
+    - Under ubuntu: sudo apt-get install python-matplotlib
+    
++ gawk 
+  * http://www.gnu.org/software/gawk/manual/gawk.html#Installation
+    - Under ubuntu: sudo apt-get install gawk
+
+Installation:
+-------------
+Unpack the tar.gz files (IEDB_BCell-1.0.tar.gz)
+
+  $ tar -zxvf IEDB_BCell-1.0.tar.gz
+  $ cd bcell
+  $ ./configure.py
+  
+Available prediction methods are:
+---------------------------------
+Chou-Fasman
+Emini
+Karplus-Schulz
+Kolaskar-Tongaonkar
+Parker
+Bepipred
+
+Available commands: 
+-------------------
+python predict_bcell.py -m [method-name] [input-file]
+python predict_bcell.py -m [method-name] --swissprot [swissprot-id]
+
+Example:
+--------
+python predict_bcell.py -m Chou-Fasman example/test.txt
+python predict_bcell.py -m Chou-Fasman --swissprot P02185
+

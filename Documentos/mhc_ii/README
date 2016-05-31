@@ -1,0 +1,73 @@
+MHC class II peptide binding prediction tools.
+=============================================
+
+Introduction
+------------
+The distributions 'IEDB_MHC_II-2.13.tar.gz'contain a collection of peptide binding prediction tools for Major Histocompatibility Complex (MHC) class II molecules.
+The collection is a mixture of pythons scripts and linux 32-bit environment specific binaries.
+
+Prerequisites:
+-------------
++ Linux 32-bit environment
+  * http://www.ubuntu.com/
+    - This distribution has been tested on Linux/Ubuntu 32 bit system.
+
++ Python 2.5 or higher
+  * http://www.python.org/
+    - Under ubuntu: sudo apt-get install python2.5
+
++ tcsh
+  * http://www.tcsh.org/Welcome
+    - Under ubuntu: sudo apt-get install tcsh
+
++ gawk
+  * http://www.gnu.org/software/gawk/
+    - Under ubuntu: sudo apt-get install gawk
+
+
+Installation:
+------------
+Unpack the tar.gz files (IEDB_MHC_II-2.13.tar.gz)
+Run the 'configure' script to set up path variables for trained models.
+
+Specifically for mhc_ii:
+  $ tar -zxvf IEDB_MHC_II-2.13.tar.gz
+  $ cd mhc_ii
+  $ ./configure.py
+  
+Available prediction methods are:
+---------------------------------
+comblib
+consensus3
+IEDB_recommended
+NetMHCIIpan
+nn_align
+smm_align
+sturniolo
+
+Available commands: 
+------------------
+* List all available commands.
+python mhc_II_binding.py
+
+* List all available mhc_II prediction methods.
+python mhc_II_binding.py method
+
+* List all alleles.
+python mhc_II_binding.py allele
+
+* Make predictions given a file containing a list of sequences.
+python mhc_II_binding.py prediction_method_name allele_name input_sequence_file_name
+
+Example:
+--------
+* To use Consensus method to predict binding for HLA-DRB1*03:01 with protein sequences in file test.fasta
+python mhc_II_binding.py consensus3 HLA-DRB1*03:01 test.fasta
+
+* You may also redirect (pipe) the input file into the script.
+echo -e test.fasta | python mhc_II_binding.py consensus3 HLA-DRB1*03:01
+
+* To redirect the output to a file, use:
+python mhc_II_binding.py consensus3 HLA-DRB1*03:01 test.fasta > output.txt
+
+

@@ -1,0 +1,3 @@
+netMHCII-2.2 test/test.fsa > test/test.pep 
+netMHCII-2.2 test/test.pep -p > test/test.pep.out
+

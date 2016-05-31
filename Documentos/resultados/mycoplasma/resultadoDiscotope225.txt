@@ -1,0 +1,34 @@
+DiscoTope predictions for 'temp225.pdb'.
+	Looking only at Chain:  A
+	Contact Distance = 10.000 Angstroms
+	Threshold = -7.700
+
+A	2	MET	8	-4.806	-8.806
+A	3	VAL	9	-5.116	-9.616
+A	4	THR	10	-5.132	-10.132
+A	5	ILE	11	-5.104	-10.604
+A	6	ALA	12	-5.240	-11.240
+A	7	ASP	13	-5.090	-11.590
+A	8	ASN	14	-4.754	-11.754
+A	9	VAL	15	-4.091	-11.591
+A	10	CYS	15	-3.036	-10.536
+A	11	LEU	15	-2.228	-9.728
+A	12	ASN	15	-1.668	-9.168
+A	13	ASN	15	-1.060	-8.560
+A	14	LYS	15	-0.429	-7.929
+A	15	LYS	15	0.257	-7.243	<=B
+A	16	GLN	14	0.938	-6.062	<=B
+A	17	THR	14	1.166	-5.834	<=B
+A	18	HIS	15	0.890	-6.610	<=B
+A	19	LEU	14	0.905	-6.095	<=B
+A	20	HIS	13	0.878	-5.622	<=B
+A	21	LEU	14	0.459	-6.541	<=B
+A	22	PRO	14	-0.384	-7.384	<=B
+A	23	LYS	12	-1.384	-7.384	<=B
+A	24	GLY	11	-1.705	-7.205	<=B
+A	25	LEU	11	-1.705	-7.205	<=B
+A	26	LEU	8	-2.536	-6.536	<=B
+A	27	PRO	8	-2.536	-6.536	<=B
+A	28	PHE	7	-2.418	-5.918	<=B
+
+Identified 14 B-Cell epitope residues out of 27 total residues

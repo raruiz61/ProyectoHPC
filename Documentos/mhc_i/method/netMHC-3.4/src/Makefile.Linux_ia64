@@ -1,0 +1,12 @@
+# Makefile 
+
+CC	= gcc
+
+MLIB    = /home/people/mniel/plexus/
+
+CFLAGS = -I$(MLIB)/utils $(COPTS) -O3
+
+LIB     = $(MLIB)/utils/utils_Linux_ia64.a 
+
+.c:
+	$(CC) $(CFLAGS) $@.c -o $@.linux $(LIB) -lm

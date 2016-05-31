@@ -1,0 +1,17 @@
+#! /bin/tcsh -f
+
+set UNIX = `uname -s`
+set AR   = `uname -m`
+
+set PLATFORM = `echo $UNIX $AR | awk '{print $1"_"$2}'`
+
+foreach f ( `ls -ltr *.c | args 9` )
+
+touch $f
+
+make -f Makefile.$PLATFORM $f:r
+
+cp $f:r ../$PLATFORM/bin
+
+end
+

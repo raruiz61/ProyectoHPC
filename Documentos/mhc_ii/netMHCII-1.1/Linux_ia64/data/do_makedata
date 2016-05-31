@@ -1,0 +1,18 @@
+#! /bin/tcsh -f
+
+set DIR = /home/projects/mniel/BPeters_ClassII_Benchmark/SMM-align//data_20112009/class_II_random_split_5cv/
+
+foreach a ( `cat $DIR/do_getperf.ens.ends.tp2.out | args 1 ` )
+
+mkdir -p $a
+
+foreach m ( `cat $DIR/$a/?.la.spbl.matlist.10 ` )
+
+cp $DIR/$a/$m $a/
+
+end
+
+ls -ltr $a/* | args 9 > $a.matlist
+
+end
+

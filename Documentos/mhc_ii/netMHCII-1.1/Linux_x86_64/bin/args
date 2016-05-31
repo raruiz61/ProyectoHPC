@@ -1,0 +1,15 @@
+#! /usr/bin/gawk -f
+BEGIN{
+	ncol=split(ARGV[1],col,",");
+	for (i=1;i<ARGC-1;i++){
+			ARGV[i]=ARGV[i+1]
+	}
+	ARGC--
+}
+{
+	for (i=1;i<=ncol;i++){
+		printf("%s",$(col[i]))
+		if (i!=ncol){printf(" ")}
+	}
+	printf("\n")
+}

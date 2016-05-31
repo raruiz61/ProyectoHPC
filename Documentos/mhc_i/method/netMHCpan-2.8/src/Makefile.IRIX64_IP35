@@ -1,0 +1,10 @@
+# Makefile 
+
+MLIB    = /home/people/mniel/plexus/
+
+CFLAGS	= -I$(MLIB)/utils $(COPTS) -O3 -64 -static
+
+LIB     = $(MLIB)/utils/utils_IRIX64_IP35.a
+
+.c:
+	$(CC) $(CFLAGS) $@.c -o $@ $(LIB) -lm

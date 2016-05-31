@@ -1,0 +1,93 @@
+#include "os_gl.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#if defined(PURE_OPENGL_ES_2)
+read default_vs default_ios.vs
+read default_fs default_ios.fs
+#ifndef PYMOL_IOS_NO_4_PASS
+read default_depth_vs default_ios_depth.vs
+read default_depth_fs default_ios_depth.fs
+#endif
+read default_picking_fs default_ios_picking.fs
+#ifdef OPENGL_ES_2
+#ifndef PYMOL_IOS_NO_4_PASS
+read label_ios_depth_fs label_ios_depth.fs
+read label_ios_depthlookup_fs label_ios_depthlookup.fs
+#endif
+read indicator_vs indicator.vs
+read indicator_fs indicator.fs
+#endif
+#elif defined(OPENGL_ES_2)
+/* these are the shaders that uses ES2 */
+read default_vs default_es2.vs
+read default_fs default_es2.fs
+#else
+/* these are the original default shaders */
+read default_vs default.vs
+read default_fs default.fs
+#endif
+#ifndef _PYMOL_PURE_OPENGL_ES
+/* Volume shaders (not used for IPhone yet */
+read volume_vs volume.vs
+read volume_fs volume.fs
+read sphere_vs sphere.vs
+read sphere_fs sphere.fs
+read spheredirect_vs spheredirect.vs
+read cylinder_vs cylinder.vs
+read cylinder_fs cylinder.fs
+read sphere_arb_vs sphere_arb_vs.vs
+read sphere_arb_fs sphere_arb_fs.fs
+read indicator_vs indicator.vs
+read indicator_fs indicator.fs
+read compute_color_for_light_fs compute_color_for_light.fs
+read call_compute_color_for_light_fs call_compute_color_for_light.fs
+#else
+#ifndef PYMOL_IOS_NO_4_PASS
+read cylinder_vs cylinder_ios.vs
+read cylinder_fs cylinder_ios.fs
+read cylinder_depth_vs cylinder_ios_depth.vs
+read cylinder_depth_fs cylinder_ios_depth.fs
+read sphere_vs sphere_ios.vs
+read sphere_fs sphere_ios.fs
+read sphere_depth_vs sphere_ios_depth.vs
+read sphere_depth_fs sphere_ios_depth.fs
+read sphere_depthwrite_vs sphere_ios_depthwrite.vs
+read sphere_depthwrite_fs sphere_ios_depthwrite.fs
+#endif
+#endif
+read compute_fog_color_fs compute_fog_color.fs
+read bg_vs bg.vs
+read bg_fs bg.fs
+read label_vs label.vs
+read label_fs label.fs
+read screen_vs screen.vs
+read screen_fs screen.fs
+read labelscreen_vs labelscreen.vs
+read labelscreen_fs labelscreen.fs
+read defaultscreen_vs defaultscreen.vs
+read defaultscreen_fs defaultscreen.fs
+read anaglyph_fs anaglyph.fs
+read anaglyph_header_fs anaglyph_header.fs
+read ramp_vs ramp.vs
+read ramp_fs ramp.fs
+read connector_gs connector.gs
+read connector_vs connector.vs
+read connector_fs connector.fs
+read connector_shared connector.shared
+read fxaa_vs anti_alias_vertex21.c
+read fxaa_fs anti_alias_fragment21.c
+read smaa_gen_vs smaa_gen.vs
+read smaa_gen_fs smaa_gen.fs
+read smaa_1_vs smaa_1.vs
+read smaa_1_fs smaa_1.fs
+read smaa_2_vs smaa_2.vs
+read smaa_2_fs smaa_2.fs
+read smaa_3_vs smaa_3.vs
+read smaa_3_fs smaa_3.fs
+
+#ifdef __cplusplus
+}
+#endif

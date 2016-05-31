@@ -1,0 +1,16 @@
+#!/bin/bash
+##
+## PyMOL startup script
+##
+
+# Set PYMOL_PATH to point to this directory
+export PYMOL_PATH="$(dirname "$(readlink -f "$0")")"
+
+# other environment variables
+export PYTHONHOME=$PYMOL_PATH/ext
+export PYTHONPATH=$PYTHONHOME/lib/python2.7:$PYTHONHOME/lib/python2.7/lib-tk:$PYTHONPATH
+export LD_LIBRARY_PATH=$PYMOL_PATH/ext/lib:$LD_LIBRARY_PATH
+export LANG=C
+
+# binary executable
+exec $PYMOL_PATH/pymol.exe "$@"

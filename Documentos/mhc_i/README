@@ -1,0 +1,88 @@
+
+MHC class I peptide binding prediction tools.
+============================================
+
+Introduction
+------------
+The distributions 'IEDB_MHC_I-2.13.tar.gz' contain a collection of peptide binding prediction tools for Major Histocompatibility Complex (MHC) class I molecules.
+The collection is a mixture of pythons scripts and linux 32-bit environment specific binaries.
+
+Prerequisites:
+-------------
+
++ Linux 32-bit environment
+  * http://www.ubuntu.com/
+    - This distribution has been tested on Linux/Ubuntu 32 bit system.
+
++ Python 2.5 or higher
+  * http://www.python.org/
+    - Under ubuntu: sudo apt-get install python2.5
+
++ tcsh
+  * http://www.tcsh.org/Welcome
+    - Under ubuntu: sudo apt-get install tcsh
+
++ gawk
+  * http://www.gnu.org/software/gawk/
+    - Under ubuntu: sudo apt-get install gawk
+
+
+Installation:
+------------
+Unpack the tar.gz files (IEDB_MHC_I-2.13.tar.gz)
+Run the 'configure' script to set up path variables for trained models.
+
+Specifically for mhc_i:
+  $ tar -zxvf IEDB_MHC_I-2.13.tar.gz
+  $ cd mhc_i
+  $ ./configure
+  
+Available prediction methods are:
+---------------------------------
+ann
+comblib_sidney2008
+consensus
+IEDB_recommended
+netmhcpan
+smm
+smmpmbec
+pickpocket
+netmhccons
+
+Available commands: 
+------------------
+* List all available commands.
+./src/predict_binding.py
+
+* List all available MHC-I prediction methods.
+./src/predict_binding.py method
+
+* List all available (MHC,peptide_length) for a given method.
+./src/predict_binding.py [method] mhc
+
+* Make predictions given a file containing a list of sequences.
+./src/predict_binding.py [method] [mhc] [peptide_length] [input_file]
+
+* Make predictions given a file containing a list of sequences and user-provided MHC sequence.
+** Only netmhcpan has this option.
+./src/predict_binding.py [method] -m [input_file_mhc] [peptide_length] [input_file]
+
+Example:
+--------
+* List all alleles for ANN method
+./src/predict_binding.py ann mhc
+
+* To use ANN method to predict binding for allele HLA-A*02:01 and length 9 with protein sequence(s) in file input_sequence.fasta
+./src/predict_binding.py ann HLA-A*02:01 9 ./examples/input_sequence.fasta
+
+* To use NetMHCpan method to predict binding for user defined MHC protein sequence and length 9 with protein sequence(s) in file input_sequence.fasta
+./src/predict_binding.py netmhcpan -m ./examples/protein_mhc_B0702.fasta 9 ./examples/input_sequence.fasta
+
+* You may also redirect (pipe) the input file into the script.
+echo -e ./examples/input_sequence.fasta | ./src/predict_binding.py ann HLA-A*02:01 9
+echo -e ./examples/input_sequence.fasta | ./src/predict_binding.py netmhcpan -m ./examples/protein_mhc_B0702.fasta 9
+
+* To redirect the output to a file, use:
+./src/predict_binding.py smm "HLA-A*02:01" 9 ./examples/input_sequence.fasta > output.txt
+
+
